@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://120.27.2.1:3306/logistics?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: wzc
+    password: 1171574344asD.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.team.iot.demo.Pojo
+server:
+  port: 9090

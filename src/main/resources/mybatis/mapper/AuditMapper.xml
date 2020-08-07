@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.iot.test.Mapper.AuditMapper">
+    <select id="queryByNameAndCode" parameterType="java.lang.String"
+            resultType="com.team.iot.test.pojo.Audit">
+        select * from audit where name = #{name} and code = #{code};
+    </select>
+    <select id="queryByName" parameterType="java.lang.String" resultType="com.team.iot.test.pojo.Audit">
+        select * from audit where name = #{name};
+    </select>
+    <insert id="addAudit" parameterType="com.team.iot.test.pojo.Audit" >
+        insert into audit (name,code,id_card,id_card_img1,id_card_img2,qualification_card_img) values (#{name},#{code},null,null,null,null);
+    </insert>
+    <update id="updateAudit" parameterType="com.team.iot.test.pojo.Audit" >
+        update audit set  code = #{code} where name = #{name}
+    </update>
+
+    <select id="auditList" resultType="com.team.iot.test.pojo.Audit">
+        select * from audit ;
+    </select>
+</mapper>

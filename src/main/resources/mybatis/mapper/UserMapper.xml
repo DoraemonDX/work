@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.iot.test.Mapper.UserMapper">
+    <select id="queryUserList" resultType="com.team.iot.test.pojo.User">
+        select * from user ;
+    </select>
+
+    <insert id="addUser" parameterType="com.team.iot.test.pojo.User">
+        insert into user (id,name,code) values (#{id},#{name},#{code})
+    </insert>
+
+    <update id="update" parameterType="com.team.iot.test.pojo.User">
+        update user set  code = #{code} where name = #{name}
+    </update>
+
+    <select id="queryUserName" parameterType="java.lang.String" resultType="com.team.iot.test.pojo.User">
+        select * from user where name =#{name}
+    </select>
+
+    <delete id="deleteUser" parameterType="java.lang.String" >
+        <!--        delete from library.admin where admin_id = #{admin_id}-->
+        delete from user where name =#{name}
+    </delete>
+
+</mapper>
