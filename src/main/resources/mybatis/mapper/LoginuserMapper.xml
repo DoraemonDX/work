@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.iot.test.Mapper.LoginuserMapper">
+    <insert id="addLoginuser" parameterType="com.team.iot.test.pojo.Loginuser" >
+        insert into loginuser values (#{user},#{password});
+    </insert>
+    <delete id="deleteLoginuser" parameterType="com.team.iot.test.pojo.Loginuser">
+        delete from loginuser where user = #{user} and password = #{password}
+    </delete>
+    <update id="updateLoginuser" parameterType="com.team.iot.test.pojo.Loginuser" >
+        update loginuser set  password = #{password} where user = #{user}
+    </update>
+    <select id="validateLogon"      resultType="com.team.iot.test.Mapper.LoginuserMapper">
+        select count(*) from loginuser where user = #{user} and password = #{password};
+    </select>
+
+
+
+
+</mapper>

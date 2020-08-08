@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.iot.test.Mapper.OperateMapper">
+    <insert id="addOperate" parameterType="com.team.iot.test.pojo.Operate" >
+       insert into operate values(#{id},#{customer},#{reservation_time},#{run_times},#{road},#{driver}, #{team}, #{reality_plate}, #{applition_plate}, #{models},#{appition_earn},#{tax},#{appition_pay},#{time},#{yuetongbao},#{road_cost},#{oil_cost},#{play_cost},#{niaosu_cost},#{other_cost},#{serial_number},#{note},#{systime})
+    </insert>
+    <delete id="deleteOperate" parameterType="java.lang.Integer">
+        delete from operate where id = #{id}
+    </delete>
+    <update id="updateOperate" parameterType="com.team.iot.test.pojo.Operate" >
+        update audit set
+        customer = #{customer},
+        reservation_time = #{reservation_time},
+        run_time = #{run_time},
+        road = #{road},
+        driver = #{driver},
+        team = #{team},
+        reality_plate = #{reality_plate},
+        applition_plate = #{applition_plate},
+        models = #{models},
+        appition_earn = #{appition_earn},
+        tax = #{tax},
+        appition_pay = #{appition_pay},
+        times = #{times},
+        yuetongbao = #{yuetongbao},
+        road_cost = #{road_cost},
+        oil_cost = #{oil_cost},
+        play_cost = #{play_cost},
+        niaosu_cost = #{niaosu_cost},
+        other_cost = #{other_cost},
+        serial_number = #{serial_number},
+        note = #{note},
+        systime = #{systime} where id = #{id}
+    </update>
+
+    <select id="queryOperateList" resultType="com.team.iot.test.pojo.Operate">
+        select * from operate ;
+    </select>
+
+    <select id="queryOperateById" parameterType="java.lang.Integer" resultType="com.team.iot.test.pojo.Operate">
+      select * from operate where id = #{id};
+    </select>
+
+</mapper>
