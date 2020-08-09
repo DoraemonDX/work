@@ -1,5 +1,6 @@
 package com.team.iot.test.controller;
 
+import com.google.gson.Gson;
 import com.team.iot.test.Mapper.OrderMapper;
 import com.team.iot.test.pojo.order;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,13 @@ import java.util.List;
 
 @Controller
 @ResponseBody
+@RequestMapping(produces = "application/json;charset=UTF-8")
 public class OrderController {
 
     @Autowired
     OrderMapper orderMapper;
 
+    Gson gson = new Gson();
     @RequestMapping("/addorder")
     public String addOrder(int id , String name, String code){
         order order = new order(id, name, code);
@@ -26,13 +29,13 @@ public class OrderController {
     @RequestMapping("/orderlist")
     public String orderList(){
         List<order> orders = orderMapper.queryOrderList();
-        return orders.toString();
+        return gson.toJson(orders);
     }
 
     @RequestMapping("/queryorderbyid")
     public String queryOrderById(int id){
         order order = orderMapper.queryOrderById(id);
-        return order.toString();
+        return gson.toJson(order);
     }
 
     @RequestMapping("/deleteorder")
