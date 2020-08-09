@@ -12,7 +12,7 @@
     <update id="updateLoginuser" parameterType="com.team.iot.test.pojo.Loginuser" >
         update loginuser set  password = #{password} where user = #{user}
     </update>
-    <select id="validateLogon"      resultType="com.team.iot.test.Mapper.LoginuserMapper">
+    <select id="validateLogon"      resultType="java.lang.Integer">
         select count(*) from loginuser where user = #{user} and password = #{password};
     </select>
 
