@@ -42,5 +42,8 @@
     <select id="queryOperateById" parameterType="java.lang.Integer" resultType="com.team.iot.test.pojo.Operate">
       select * from operate where id = #{id};
     </select>
-
+        
+    <select id="queryOperateListById" parameterType="java.lang.String" resultType="com.team.iot.test.pojo.Operate">
+        select * from operate where state = #{state};
+    </select>
 </mapper>
