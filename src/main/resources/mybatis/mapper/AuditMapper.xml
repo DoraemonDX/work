@@ -11,10 +11,17 @@
         select * from audit where name = #{name};
     </select>
     <insert id="addAudit" parameterType="com.team.iot.test.pojo.Audit" >
-        insert into audit (name,code,id_card,id_card_img1,id_card_img2,qualification_card_img) values (#{name},#{code},null,null,null,null);
+        insert into audit (name,code,id_card,id_card_img1,id_card_img2,qualification_card_img,phone) values (#{name},#{code},#{id_card},#{id_card_img1},#{id_card_img2},#{qualification_card_img},#{phone});
     </insert>
     <update id="updateAudit" parameterType="com.team.iot.test.pojo.Audit" >
-        update audit set  code = #{code} where name = #{name}
+        update audit set
+          code = #{code} ,
+          id_card = #{id_card},
+          id_card_img1 = #{id_card_img1},
+          id_card_img2 = #{id_card_img2},
+          qualification_card_img =#{qualification_card_img},
+          phone = #{phone}
+         where name = #{name};
     </update>
 
     <select id="auditList" resultType="com.team.iot.test.pojo.Audit">

@@ -11,5 +11,5 @@ public interface LoginuserMapper {
     public int addLoginuser(Loginuser loginuser);
     public int deleteLoginuser(Loginuser loginuser);
     public int updateLoginuser(Loginuser loginuser);
-    public LoginuserMapper validateLogon(Loginuser loginuser);
+    public int validateLogon(Loginuser loginuser);
 }
