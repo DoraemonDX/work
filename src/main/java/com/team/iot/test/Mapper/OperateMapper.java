@@ -11,6 +11,7 @@ import java.util.*;
 public interface OperateMapper {
     public Operate queryOperateById(int id);
     public List<Operate> queryOperateList();
+    public List<Operate> quertOperateListByState(String state);
     public int addOperate(Operate operate);
     public int deleteOperate(int id);
     public int updateOperate(Operate operate);
